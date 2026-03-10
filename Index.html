@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mosquée du Bourget — Première Mosquée de la Ville</title>
+<meta name="description" content="Construisons ensemble la première mosquée du Bourget. Terrain acquis. Permis déposé. Il manque 204 789 € avant le 31 décembre 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1a3c2b;--green-mid:#2d5a3d;--green-light:#4a8c62;
+  --gold:#c8963e;--gold-light:#e8b96a;
+  --cream:#f5f0e8;--cream-dark:#ede6d6;
+  --text:#1a1a1a;--text-mid:#4a4a4a;--white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,240,232,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,150,62,0.15);transition:all .3s}
+nav.scrolled{padding:12px 48px}
+.nav-logo{font-family:“Cormorant Garamond”,serif;font-size:1.15rem;font-weight:600;color:var(–green);letter-spacing:.05em}
+.nav-logo span{color:var(–gold)}
+.nav-cta{background:var(–green);color:var(–white);padding:10px 26px;font-size:.8rem;font-weight:500;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;border-radius:2px;transition:all .2s}
+.nav-cta:hover{background:var(–green-mid);transform:translateY(-1px)}
+
+/* HERO — fond cream clair, texte lisible */
+.hero{min-height:100vh;padding:130px 48px 70px;position:relative;overflow:hidden;background:var(–cream)}
+.hero-bg{position:absolute;inset:0;z-index:0;
+background:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(200,150,62,.07) 0%,transparent 70%),
+radial-gradient(ellipse 50% 70% at 10% 90%,rgba(26,60,43,.05) 0%,transparent 60%)}
+.hero-deco{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:440px;height:640px;z-index:0;opacity:.055}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(–gold);margin-bottom:28px;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-eyebrow::before{content:””;display:block;width:28px;height:1px;background:var(–gold)}
+.hero-title{font-family:“Cormorant Garamond”,serif;font-size:clamp(3rem,7vw,5.8rem);font-weight:300;line-height:1.05;color:var(–green);margin-bottom:28px;opacity:0;animation:fadeUp .9s .35s forwards}
+.hero-title em{font-style:italic;color:var(–gold)}
+.hero-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(–text-mid);max-width:520px;margin-bottom:44px;opacity:0;animation:fadeUp .9s .5s forwards}
+.hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .65s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(–green);color:var(–white);padding:17px 38px;font-size:.88rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .25s;box-shadow:0 4px 24px rgba(26,60,43,.22)}
+.btn-primary:hover{background:var(–green-mid);transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,60,43,.28)}
+.btn-primary svg{transition:transform .2s}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-sec{display:inline-flex;align-items:center;gap:8px;color:var(–green);font-size:.85rem;font-weight:500;text-decoration:none;border-bottom:1px solid var(–green);padding-bottom:2px;transition:all .2s}
+.btn-sec:hover{color:var(–gold);border-color:var(–gold)}
+
+/* URGENCY BANNER — fond vert, texte BLANC + or */
+.urgency{position:relative;z-index:1;background:var(–green);color:var(–white);padding:22px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:52px;border-radius:3px;opacity:0;animation:fadeUp .9s .8s forwards}
+.urgency::before{content:””;position:absolute;left:0;top:0;bottom:0;width:4px;background:var(–gold);border-radius:3px 0 0 3px}
+.u-label{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(–gold-light);margin-bottom:3px}
+.u-amount{font-family:“Cormorant Garamond”,serif;font-size:2.2rem;font-weight:600;color:var(–white);line-height:1}
+.u-sub{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:2px}
+.u-div{width:1px;height:54px;background:rgba(255,255,255,.12);flex-shrink:0}
+.u-deadline .u-label{color:#ffb3b3}
+.u-deadline .u-amount{color:#fff}
+.urgency-cta{background:var(–gold);color:var(–green);padding:13px 28px;font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.urgency-cta:hover{background:var(–gold-light);transform:translateY(-1px)}
+
+/* PROGRESS */
+.progress-section{background:var(–white);padding:56px 48px;border-bottom:1px solid var(–cream-dark)}
+.progress-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.progress-label span:first-child{font-family:“Cormorant Garamond”,serif;font-size:1.5rem;font-weight:600;color:var(–green)}
+.progress-label span:last-child{font-size:.8rem;color:var(–text-mid);letter-spacing:.05em}
+.progress-track{height:7px;background:var(–cream-dark);border-radius:4px;overflow:hidden;margin-bottom:22px}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(–green),var(–green-light));border-radius:4px;transition:width 2.2s cubic-bezier(.16,1,.3,1)}
+.progress-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(–cream-dark);border:1px solid var(–cream-dark);border-radius:3px;overflow:hidden}
+.stat{background:var(–white);padding:22px 28px}
+.stat-v{font-family:“Cormorant Garamond”,serif;font-size:1.85rem;font-weight:600;color:var(–green);margin-bottom:3px}
+.stat-v.red{color:#c0392b}
+.stat-l{font-size:.72rem;color:var(–text-mid);letter-spacing:.08em;text-transform:uppercase}
+
+/* PROOF */
+.proof{background:var(–green);color:var(–white);padding:56px 48px}
+.proof-title{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(–gold-light);margin-bottom:36px;text-align:center}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px;background:rgba(255,255,255,.08)}
+.proof-item{background:var(–green);padding:28px;transition:background .2s}
+.proof-item:hover{background:var(–green-mid)}
+.proof-icon{width:36px;height:36px;background:rgba(200,150,62,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(–gold-light);font-size:1rem;margin-bottom:12px}
+.proof-name{font-family:“Cormorant Garamond”,serif;font-size:1.05rem;font-weight:600;color:var(–white);margin-bottom:7px}
+.proof-sub{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.5}
+
+/* ══════════════════════════════════════
+CINEMATIC TOUR SECTION
+══════════════════════════════════════ */
+.cinema-section{
+position:relative;background:#0d1f15;
+overflow:hidden;
+}
+/* Fullscreen sliding stage */
+.cinema-stage{
+position:relative;
+height:100vh;min-height:580px;max-height:820px;
+overflow:hidden;
+}
+/* Each slide */
+.cinema-slide{
+position:absolute;inset:0;
+display:flex;align-items:center;justify-content:center;
+opacity:0;
+transition:opacity 1.2s cubic-bezier(.4,0,.2,1);
+pointer-events:none;
+}
+.cinema-slide.active{opacity:1;pointer-events:auto}
+/* Background image with Ken Burns */
+.slide-bg{
+position:absolute;inset:-6%;
+background-size:cover;background-position:center;
+filter:brightness(.42) saturate(1.1);
+transition:transform 8s ease-out;
+}
+.cinema-slide.active .slide-bg{transform:scale(1.08)}
+/* Gold gradient overlay */
+.slide-overlay{
+position:absolute;inset:0;
+background:linear-gradient(
+135deg,
+rgba(26,60,43,.7) 0%,
+rgba(13,31,21,.3) 50%,
+rgba(200,150,62,.08) 100%
+);
+}
+/* Bottom fade */
+.slide-bottom-fade{
+position:absolute;bottom:0;left:0;right:0;height:40%;
+background:linear-gradient(to top,rgba(13,31,21,.9),transparent);
+}
+/* Slide content */
+.slide-content{
+position:relative;z-index:2;
+max-width:700px;padding:0 48px;text-align:left;
+transform:translateY(20px);opacity:0;
+transition:transform .9s .4s ease,opacity .9s .4s ease;
+}
+.cinema-slide.active .slide-content{transform:translateY(0);opacity:1}
+.slide-eyebrow{
+font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
+color:var(–gold-light);margin-bottom:16px;
+display:flex;align-items:center;gap:12px;
+}
+.slide-eyebrow::before{content:””;display:block;width:28px;height:1px;background:var(–gold-light)}
+.slide-title{
+font-family:“Cormorant Garamond”,serif;
+font-size:clamp(2rem,5vw,3.8rem);font-weight:300;line-height:1.1;
+color:var(–white);margin-bottom:16px;
+}
+.slide-title em{font-style:italic;color:var(–gold-light)}
+.slide-desc{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.75;max-width:460px}
+
+/* Slide counter */
+.cinema-counter{
+position:absolute;bottom:36px;left:48px;z-index:10;
+display:flex;align-items:center;gap:16px;
+}
+.counter-number{
+font-family:“Cormorant Garamond”,serif;
+font-size:1rem;color:rgba(255,255,255,.5);letter-spacing:.08em;
+}
+.counter-number span{color:var(–gold-light);font-size:1.4rem}
+.cinema-dots{
+position:absolute;bottom:40px;right:48px;z-index:10;
+display:flex;gap:8px;
+}
+.cinema-dot{
+width:24px;height:2px;background:rgba(255,255,255,.25);
+cursor:pointer;transition:all .3s;border:none;outline:none;padding:0;
+}
+.cinema-dot.active{background:var(–gold-light);width:40px}
+/* Progress line */
+.cinema-progress-line{
+position:absolute;bottom:0;left:0;right:0;height:2px;z-index:10;
+background:rgba(255,255,255,.08);
+}
+.cinema-progress-fill{
+height:100%;width:0;background:var(–gold);
+transition:none;
+}
+/* Nav arrows */
+.cinema-nav{
+position:absolute;top:50%;right:32px;transform:translateY(-50%);z-index:10;
+display:flex;flex-direction:column;gap:10px;
+}
+.cinema-btn{
+width:44px;height:44px;border-radius:50%;
+border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);
+color:var(–white);cursor:pointer;display:flex;align-items:center;justify-content:center;
+transition:all .2s;backdrop-filter:blur(8px);
+}
+.cinema-btn:hover{background:rgba(200,150,62,.3);border-color:var(–gold)}
+/* Caption bar */
+.cinema-caption{
+background:#0d1f15;
+padding:20px 48px;
+display:flex;align-items:center;justify-content:space-between;gap:20px;
+border-top:1px solid rgba(255,255,255,.06);
+}
+.caption-tag{
+font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+color:var(–gold-light);
+background:rgba(200,150,62,.12);
+padding:5px 12px;border-radius:2px;white-space:nowrap;
+}
+.caption-text{font-size:.82rem;color:rgba(255,255,255,.5);font-style:italic}
+
+/* SVG SLIDES backgrounds using inline SVG encoded */
+.slide-svg-bg{
+position:absolute;inset:0;
+display:flex;align-items:center;justify-content:center;
+overflow:hidden;
+}
+
+/* STORY */
+.story-section{padding:88px 48px;background:var(–white);display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.story-eyebrow{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(–gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.story-eyebrow::before{content:””;display:block;width:22px;height:1px;background:var(–gold)}
+.story-h2{font-family:“Cormorant Garamond”,serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:300;color:var(–green);line-height:1.15;margin-bottom:0}
+.story-q{font-family:“Cormorant Garamond”,serif;font-size:1.5rem;font-weight:300;font-style:italic;color:var(–green);line-height:1.55;border-left:3px solid var(–gold);padding-left:24px;margin:28px 0}
+.story-p{font-size:.9rem;line-height:1.85;color:var(–text-mid);margin-bottom:14px}
+.story-card{background:var(–green);color:var(–white);padding:44px;border-radius:3px}
+.sc-num{font-family:“Cormorant Garamond”,serif;font-size:4.5rem;font-weight:300;color:rgba(255,255,255,.07);line-height:1;margin-bottom:-16px}
+.sc-fact{font-family:“Cormorant Garamond”,serif;font-size:1.3rem;font-weight:400;line-height:1.4;margin-bottom:6px}
+.sc-sub{font-size:.8rem;color:rgba(255,255,255,.55)}
+.sc-div{height:1px;background:rgba(255,255,255,.1);margin:24px 0}
+
+/* PILLARS */
+.pillars-section{padding:88px 48px;background:var(–cream)}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;background:var(–cream-dark)}
+.pillar{background:var(–cream);padding:44px 32px;transition:all .3s}
+.pillar:hover{background:var(–white);transform:translateY(-3px)}
+.p-num{font-family:“Cormorant Garamond”,serif;font-size:3.2rem;font-weight:300;color:rgba(26,60,43,.09);line-height:1;margin-bottom:18px}
+.p-icon{color:var(–gold);font-size:1.5rem;margin-bottom:18px}
+.p-title{font-family:“Cormorant Garamond”,serif;font-size:1.25rem;font-weight:600;color:var(–green);margin-bottom:10px}
+.p-text{font-size:.86rem;line-height:1.75;color:var(–text-mid)}
+
+/* HADITH */
+.hadith-section{padding:88px 48px;background:var(–cream-dark);text-align:center}
+.hadith-t{font-family:“Cormorant Garamond”,serif;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:300;font-style:italic;color:var(–green);line-height:1.55;max-width:760px;margin:0 auto 16px}
+.hadith-src{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(–gold)}
+.hadith-ar{font-size:1.8rem;color:var(–green);opacity:.25;margin-top:28px;direction:rtl}
+
+/* DONATION */
+.don-section{padding:88px 48px;background:var(–green);color:var(–white);position:relative;overflow:hidden}
+.don-section::after{content:””;position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:700px;height:700px;border-radius:50%;border:1px solid rgba(255,255,255,.04)}
+.don-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;text-align:center}
+.don-eyebrow{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(–gold-light);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px}
+.don-eyebrow::before,.don-eyebrow::after{content:””;display:block;width:24px;height:1px;background:var(–gold-light)}
+.don-title{font-family:“Cormorant Garamond”,serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;line-height:1.15;margin-bottom:18px}
+.don-title em{color:var(–gold-light);font-style:italic}
+.don-sub{font-size:.95rem;color:rgba(255,255,255,.6);margin-bottom:52px;line-height:1.75}
+
+/* Tiers */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:3px;background:rgba(255,255,255,.05);margin-bottom:40px;border-radius:3px;overflow:hidden}
+.tier{background:rgba(255,255,255,.04);padding:26px 18px;text-align:center;cursor:pointer;transition:background .2s;border:none;color:inherit}
+.tier:hover,.tier.active{background:rgba(200,150,62,.18)}
+.tier-amt{font-family:“Cormorant Garamond”,serif;font-size:1.7rem;font-weight:600;color:var(–gold-light);margin-bottom:5px}
+.tier-lbl{font-size:.68rem;color:rgba(255,255,255,.5);letter-spacing:.06em;line-height:1.4}
+
+/* Methods */
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left;margin-bottom:36px}
+.method{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:22px;border-radius:3px}
+.method-t{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(–gold-light);margin-bottom:7px}
+.method-d{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.6;font-family:monospace}
+.btn-don{display:inline-flex;align-items:center;gap:12px;background:var(–gold);color:var(–green);padding:19px 48px;font-size:.88rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .25s;box-shadow:0 4px 32px rgba(200,150,62,.35)}
+.btn-don:hover{background:var(–gold-light);transform:translateY(-3px);box-shadow:0 8px 48px rgba(200,150,62,.45)}
+
+/* FOOTER */
+footer{background:#111;color:var(–white);padding:56px 48px 36px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:52px;margin-bottom:52px}
+.footer-logo{font-family:“Cormorant Garamond”,serif;font-size:1.3rem;font-weight:600;color:var(–white);margin-bottom:14px}
+.footer-logo span{color:var(–gold-light)}
+.footer-p{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.7}
+.footer-ht{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(–gold-light);margin-bottom:16px}
+.footer-col a,.footer-col p{display:block;font-size:.85rem;color:rgba(255,255,255,.48);margin-bottom:9px;text-decoration:none;line-height:1.6}
+.footer-col a:hover{color:var(–gold-light)}
+.footer-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:.74rem;color:rgba(255,255,255,.25)}
+
+/* SECTION HEADER */
+.sec-eyebrow{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(–gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-eyebrow::before{content:””;display:block;width:22px;height:1px;background:var(–gold)}
+.sec-h2{font-family:“Cormorant Garamond”,serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:300;color:var(–green);line-height:1.15}
+.sec-h2 em{font-style:italic}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+nav{padding:14px 20px}
+.hero{padding:110px 22px 52px}
+.hero-deco{display:none}
+.urgency{flex-direction:column;text-align:center;padding:20px}
+.u-div{display:none}
+.progress-section,.proof,.hadith-section{padding:44px 22px}
+.progress-stats{grid-template-columns:1fr}
+.story-section{grid-template-columns:1fr;gap:40px;padding:56px 22px}
+.pillars-section,.don-section{padding:56px 22px}
+.pillars-grid{grid-template-columns:1fr}
+.methods{grid-template-columns:1fr}
+.cinema-caption{padding:16px 22px;flex-direction:column;gap:8px}
+.slide-content{padding:0 28px}
+.cinema-nav{display:none}
+footer{padding:44px 22px 28px}
+.footer-grid{grid-template-columns:1fr;gap:32px}
+.footer-bot{flex-direction:column;gap:10px;text-align:center}
+}
+
+/* ── VIDEO SECTION ── */
+.video-section {
+padding: 100px 48px;
+background: var(–green);
+}
+.video-header {
+text-align: center;
+margin-bottom: 52px;
+}
+.video-header .sec-eyebrow {
+color: var(–gold-light);
+justify-content: center;
+}
+.video-header .sec-eyebrow::before {
+background: var(–gold-light);
+}
+.video-header .sec-h2 {
+color: var(–white);
+margin-top: 12px;
+}
+.video-header .sec-h2 em { color: var(–gold-light); }
+.video-sub {
+font-size: .92rem; color: rgba(255,255,255,.55);
+margin-top: 14px; line-height: 1.7;
+max-width: 520px; margin-left: auto; margin-right: auto;
+}
+.video-wrapper {
+max-width: 960px;
+margin: 0 auto;
+}
+.video-frame {
+position: relative;
+width: 100%;
+padding-bottom: 56.25%; /* 16:9 */
+border-radius: 6px;
+overflow: hidden;
+box-shadow: 0 32px 80px rgba(0,0,0,.5);
+border: 1px solid rgba(200,150,62,.2);
+}
+.video-frame iframe {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+}
+.video-badges {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 16px;
+flex-wrap: wrap;
+margin-top: 28px;
+}
+.vbadge {
+font-size: .72rem;
+letter-spacing: .1em;
+text-transform: uppercase;
+color: rgba(255,255,255,.5);
+background: rgba(255,255,255,.06);
+border: 1px solid rgba(255,255,255,.1);
+padding: 7px 16px;
+border-radius: 2px;
+}
+@media(max-width:768px) {
+.video-section { padding: 64px 22px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav id="nav">
+  <div class="nav-logo">Projet de Mosquée <span>du Bourget</span></div>
+  <a href="#don" class="nav-cta">Faire un don</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco">
+    <svg viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 580 L50 200 Q50 50 200 50 Q350 50 350 200 L350 580" stroke="#1a3c2b" stroke-width="1.5" fill="none"/>
+      <path d="M100 580 L100 220 Q100 110 200 110 Q300 110 300 220 L300 580" stroke="#1a3c2b" stroke-width="1" fill="none"/>
+      <path d="M150 580 L150 250 Q150 180 200 180 Q250 180 250 250 L250 580" stroke="#c8963e" stroke-width="0.8" fill="none" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Association Pont de l&apos;Amitié du Bourget</div>
+    <h1 class="hero-title">La première<br>Mosquée édifiée<br><em>du Bourget</em></h1>
+    <p class="hero-sub">Après des décennies d&apos;attente et d&apos;espoir, la communauté musulmane du Bourget voit enfin son projet de construction de sa Mosquée sur le point de se concrétiser. Une promesse de vente d&apos;un terrain a été signée avec la municipalité et le permis de construire a été déposé. Désormais seule la collecte de la somme restante de <strong>204&nbsp;789&nbsp;€</strong> nous sépare de cet objectif.</p>
+    <div class="hero-actions">
+      <a href="#don" class="btn-primary">
+        Contribuer maintenant
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#projet" class="btn-sec">Découvrir le projet</a>
+    </div>
+    <div class="urgency">
+      <div>
+        <div class="u-label">Reste à collecter</div>
+        <div class="u-amount">204&nbsp;789&nbsp;€</div>
+        <div class="u-sub">sur 698&nbsp;000&nbsp;€ au total</div>
+      </div>
+      <div class="u-div"></div>
+      <div class="u-deadline">
+        <div class="u-label">⚠ Deadline contractuelle</div>
+        <div class="u-amount">31 déc. 2026</div>
+        <div class="u-sub">Au-delà, la promesse de vente tombe</div>
+      </div>
+      <div class="u-div"></div>
+      <div>
+        <div class="u-label">Déjà collecté</div>
+        <div class="u-amount">493&nbsp;211&nbsp;€</div>
+        <div class="u-sub">par la communauté · mars 2026</div>
+      </div>
+      <a href="#don" class="urgency-cta">Je donne →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+
+<section class="progress-section reveal">
+  <div class="progress-label">
+    <span>Progression de la collecte</span>
+    <span>493&nbsp;211&nbsp;€ / 698&nbsp;000&nbsp;€ — 70,6&nbsp;%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="pf"></div></div>
+  <div class="progress-stats">
+    <div class="stat"><div class="stat-v">493&nbsp;211&nbsp;€</div><div class="stat-l">Collecté à ce jour</div></div>
+    <div class="stat"><div class="stat-v red">204&nbsp;789&nbsp;€</div><div class="stat-l">Reste à trouver</div></div>
+    <div class="stat"><div class="stat-v">31/12/2026</div><div class="stat-l">Deadline acquisition</div></div>
+  </div>
+</section>
+
+<!-- PROOF -->
+
+<section class="proof reveal">
+  <div class="proof-title">Ce projet est officiel — voici les preuves</div>
+  <div class="proof-grid">
+    <div class="proof-item"><div class="proof-icon">✓</div><div class="proof-name">Vote du Conseil Municipal</div><div class="proof-sub">Délibération officielle du 6 novembre 2025. La Mairie a voté pour céder le terrain.</div></div>
+    <div class="proof-item"><div class="proof-icon">✓</div><div class="proof-name">Promesse de vente notariée</div><div class="proof-sub">Signée le 22 janvier 2026 devant notaire entre la Mairie du Bourget et notre association.</div></div>
+    <div class="proof-item"><div class="proof-icon">✓</div><div class="proof-name">Permis de construire déposé</div><div class="proof-sub">Le permis du Centre Culturel et Cultuel du Bourget est finalisé et officiellement déposé.</div></div>
+    <div class="proof-item"><div class="proof-icon">✓</div><div class="proof-name">Terrain au cœur de la ville</div><div class="proof-sub">28-30 Rue du Commandant Rolland, Le Bourget. 2&nbsp;992 m² libres de toute occupation.</div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CINEMATIC VIDEO SECTION
+══════════════════════════════════ -->
+
+<section class="video-section" id="projet">
+  <div class="video-header reveal">
+    <div class="sec-eyebrow">Visite virtuelle</div>
+    <h2 class="sec-h2">Voilà ce que sera<br><em>votre mosquée</em></h2>
+    <p class="video-sub">Une vue immersive du futur Centre Culturel et Cultuel du Bourget, telle qu&apos;elle a été conçue par l&apos;architecte.</p>
+  </div>
+  <div class="video-wrapper reveal">
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube.com/embed/fZYfqDYzmto?autoplay=0&rel=0&modestbranding=1&color=white&iv_load_policy=3"
+        title="Visite virtuelle — Centre Culturel et Cultuel du Bourget"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-badges">
+      <div class="vbadge">✓ Rendu officiel de l&apos;architecte</div>
+      <div class="vbadge">✓ Permis de construire déposé</div>
+      <div class="vbadge">✓ Plans 3D · Vue immersive</div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+
+<section class="story-section">
+  <div class="reveal">
+    <div class="story-eyebrow">L&apos;histoire</div>
+    <h2 class="story-h2">Pourquoi<br><em>Le Bourget</em>&nbsp;?</h2>
+    <blockquote class="story-q">« Le Bourget accueille le monde entier lors de son salon aéronautique. Il est temps qu&apos;il accueille aussi sa communauté dans une maison d&apos;Allah. »</blockquote>
+    <p class="story-p">Le Bourget est la seule ville de la Seine-Saint-Denis à ne pas disposer de Mosquée. Ses habitants prient actuellement dans des Algecos provisoires et sous la pluie. Les communes voisines — Drancy, La Courneuve, Blanc-Mesnil, Dugny, Stains — disposent toutes de leur mosquée.</p>
+    <p class="story-p">Le 22 janvier 2026, la Mairie du Bourget a signé devant notaire la promesse de vente d&apos;un terrain de 2&nbsp;992&nbsp;m² à notre association. Le permis de construire a été déposé. Une Mosquée digne, pour mettre fin aux prises dans des Algecos provisoires et sous la pluie.</p>
+    <p class="story-p"><strong>Il nous manque 204&nbsp;789&nbsp;€ pour concrétiser la vente. Nous aimerions les collecter le plus rapidement possible pour acter l&apos;achat définitif de ce terrain.</strong></p>
+  </div>
+  <div class="reveal">
+    <div class="story-card">
+      <div class="sc-num">01</div>
+      <div class="sc-fact">Seule commune du secteur sans mosquée</div>
+      <div class="sc-sub">Toutes les villes voisines en disposent</div>
+      <div class="sc-div"></div>
+      <div class="sc-num">02</div>
+      <div class="sc-fact">2&nbsp;992 m² — 28-30 Rue du Commandant Rolland</div>
+      <div class="sc-sub">Emplacement central, accessible à tous</div>
+      <div class="sc-div"></div>
+      <div class="sc-num">03</div>
+      <div class="sc-fact">Acte notarié · Permis déposé · Communauté mobilisée</div>
+      <div class="sc-sub">Ce n&apos;est pas un projet — c&apos;est une réalité en marche</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+
+<section class="pillars-section">
+  <div class="reveal">
+    <div class="sec-eyebrow">Pourquoi donner</div>
+    <h2 class="sec-h2">Trois raisons de<br><em>rejoindre l&apos;histoire</em></h2>
+  </div>
+  <div class="pillars-grid reveal">
+    <div class="pillar"><div class="p-num">01</div><div class="p-icon">🏛️</div><h3 class="p-title">Légitimité totale</h3><p class="p-text">Promesse de vente notariée. Vote du Conseil Municipal. Permis de construire. Chaque euro va à un projet officiellement reconnu par la Ville du Bourget.</p></div>
+    <div class="pillar"><div class="p-num">02</div><div class="p-icon">⏰</div><h3 class="p-title">Une urgence réelle</h3><p class="p-text">31 décembre 2026. C&apos;est la date contractuelle inscrite dans l&apos;acte notarié. Sans les fonds, la promesse tombe. Il n&apos;y aura pas de deuxième chance.</p></div>
+    <div class="pillar"><div class="p-num">03</div><div class="p-icon">🤲</div><h3 class="p-title">Sadaqa jariya</h3><p class="p-text">Le Prophète ﷺ a dit : « Celui qui construit pour Allah une mosquée, Allah lui construit une maison au Paradis. » Votre don vous accompagnera au-delà de cette vie.</p></div>
+  </div>
+</section>
+
+<!-- HADITH -->
+
+<section class="hadith-section reveal">
+  <p class="hadith-t">« Celui qui construit pour Allah une mosquée, même aussi petite qu&apos;un nid d&apos;oiseau, Allah lui construit une maison au Paradis. »</p>
+  <p class="hadith-src">— Sahih Bukhari &amp; Muslim · Hadith authentique</p>
+  <p class="hadith-ar">بارك الله فيكم</p>
+</section>
+
+<!-- DON -->
+
+<section class="don-section" id="don">
+  <div class="don-inner">
+    <div class="reveal">
+      <div class="don-eyebrow">Faire un don</div>
+      <h2 class="don-title">Chaque euro<br>nous <em>rapproche</em></h2>
+      <p class="don-sub">Il manque 204&nbsp;789&nbsp;€. Contribuez par carte bancaire, virement, chèque ou espèces.</p>
+    </div>
+    <div class="tiers reveal">
+      <button class="tier"><div class="tier-amt">10&nbsp;€</div><div class="tier-lbl">Pour laisser son empreinte sur le projet</div></button>
+      <button class="tier"><div class="tier-amt">50&nbsp;€</div><div class="tier-lbl">50€ pour participer à un espace de prière</div></button>
+      <button class="tier active"><div class="tier-amt">100&nbsp;€</div><div class="tier-lbl">500€ pour un peu plus de 2m² pour la communauté</div></button>
+      <button class="tier"><div class="tier-amt">500&nbsp;€</div><div class="tier-lbl">100€ pour 4m² de terrain pour la communauté</div></button>
+      <button class="tier"><div class="tier-amt">1&nbsp;000&nbsp;€</div><div class="tier-lbl">Mécène · Votre nom dans l&apos;histoire</div></button>
+    </div>
+    <div class="methods reveal">
+      <div class="method"><div class="method-t">💳 Don en ligne — CotizUp</div><div class="method-d">Paiement sécurisé par carte bancaire<br>cotizup.com/mosqueedubourget</div></div>
+      <div class="method"><div class="method-t">🏦 Virement bancaire</div><div class="method-d">IBAN : FR76 3000 4009 6300 0103 6909 110<br>PONT DE L&apos;AMITIE DU BOURGET PAB</div></div>
+    </div>
+    <div class="reveal">
+      <a href="https://www.cotizup.com" class="btn-don" target="_blank">🤲 Je fais un don maintenant</a>
+      <p style="margin-top:18px;font-size:.74rem;color:rgba(255,255,255,.35);letter-spacing:.04em">Don par chèque à l&apos;ordre de « Pont de l&apos;Amitié du Bourget » · Don en espèces : contactez-nous</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Mosquée <span>du Bourget</span></div>
+      <p class="footer-p">Association Pont de l&apos;Amitié du Bourget (PAB)<br>Construisons ensemble la première mosquée du Bourget.</p>
+      <p class="footer-p" style="margin-top:12px">Retrouvez-nous · « Projet Mosquée le Bourget »</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-ht">Contact</div>
+      <p>📧 pablebourget@gmail.com</p>
+      <p>📞 07 58 54 86 01</p>
+      <p>📍 28-30 Rue du Commandant Rolland<br>93350 Le Bourget</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-ht">Faire un don</div>
+      <a href="#don">Don en ligne — CotizUp</a>
+      <p>IBAN : FR76 3000 4009<br>6300 0103 6909 110</p>
+      <p style="margin-top:14px;color:rgba(255,255,255,.22);font-size:.76rem">Deadline : <strong style="color:rgba(255,255,255,.45)">31 décembre 2026</strong></p>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 Association Pont de l&apos;Amitié du Bourget</span>
+    <span>mosqueedubourget.fr</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 50));
+
+// Progress bar
+const pf = document.getElementById("pf");
+new IntersectionObserver((e) => { if(e[0].isIntersecting){ setTimeout(()=>pf.style.width="70.6%",300); } }, {threshold:.3}).observe(pf);
+
+// Reveal
+document.querySelectorAll(".reveal").forEach(el => {
+  new IntersectionObserver((e) => { if(e[0].isIntersecting){ el.classList.add("visible"); } }, {threshold:.1}).observe(el);
+});
+
+// Tiers
+document.querySelectorAll(".tier").forEach(t => {
+  t.addEventListener("click", () => {
+    document.querySelectorAll(".tier").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+  });
+});
+
+// Cinematic slider
+const captions = [
+  ["Vue d'ensemble — rendu 3D officiel", "Centre Culturel et Cultuel du Bourget · Rendu 3D officiel de l'architecte · Permis déposé"],
+  ["Architecture — Arches & Moucharabieh", "Façade principale avec arches caractéristiques · Design contemporain et identité islamique"],
+  ["Entrée principale — Vue rue", "28-30 Rue du Commandant Rolland, Le Bourget · Ouvert à toute la communauté"]
+];
+let cur = 0, autoTimer, progressTimer;
+const slides = document.querySelectorAll(".cinema-slide");
+const dots   = document.querySelectorAll(".cinema-dot");
+const cpf    = document.getElementById("cpf");
+const curEl  = document.getElementById("cur");
+const capTag = document.getElementById("cap-tag");
+const capTxt = document.getElementById("cap-text");
+const DURATION = 6000;
+
+function goSlide(n) {
+  slides[cur].classList.remove("active");
+  dots[cur].classList.remove("active");
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add("active");
+  dots[cur].classList.add("active");
+  curEl.textContent = String(cur+1).padStart(2,"0");
+  capTag.textContent = captions[cur][0];
+  capTxt.textContent = captions[cur][1];
+  // Progress line
+  cpf.style.transition = "none";
+  cpf.style.width = "0%";
+  setTimeout(() => {
+    cpf.style.transition = `width ${DURATION}ms linear`;
+    cpf.style.width = "100%";
+  }, 50);
+}
+function nextSlide() { clearInterval(autoTimer); goSlide(cur+1); startAuto(); }
+function prevSlide() { clearInterval(autoTimer); goSlide(cur-1); startAuto(); }
+function startAuto() { autoTimer = setInterval(() => goSlide(cur+1), DURATION); }
+
+// Init
+goSlide(0);
+startAuto();
+</script>
+
+</body>
+</html>
